@@ -22,5 +22,8 @@ public class Host {
     @Column(length = 65, nullable = false)
     private String surname;
 
+    @ManyToOne
+    @JoinColumn(name = "hotel_id")
+    private Hotel hotel;
 
 }

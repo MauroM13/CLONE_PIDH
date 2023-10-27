@@ -1,18 +1,20 @@
-DROP TABLE IF EXISTS Category;
+-- Drop tables if they exist
+DROP TABLE IF EXISTS Reservation;
+DROP TABLE IF EXISTS Room;
+DROP TABLE IF EXISTS Guest;
+DROP TABLE IF EXISTS Contact;
 DROP TABLE IF EXISTS Address;
 DROP TABLE IF EXISTS Attraction;
-DROP TABLE IF EXISTS Contact;
-DROP TABLE IF EXISTS Guest;
-DROP TABLE IF EXISTS Hosts;
-DROP TABLE IF EXISTS Hotels;
-DROP TABLE IF EXISTS Reservations;
-DROP TABLE IF EXISTS Rooms;
+DROP TABLE IF EXISTS Hotel;
+DROP TABLE IF EXISTS Host;
+DROP TABLE IF EXISTS Category;
 
+-- Create tables
 CREATE TABLE Category (
     id BINARY(16) PRIMARY KEY,
     description VARCHAR(255) NOT NULL,
     image_url VARCHAR(255),
-    ratings ENUM('ONE_STAR', 'TWO_STARS', 'THREE_STARS', 'FOUR_STARS', 'FIVE_STARS'),
+    ratings ENUM('ONE_STAR', 'TWO_STARS', 'THREE_STARS', 'FOUR_STARS', 'FIVE_STARS')
 );
 
 CREATE TABLE Address (
@@ -43,7 +45,7 @@ CREATE TABLE Contact (
     updated_At DATETIME
 );
 
-CREATE TABLE Guests (
+CREATE TABLE Guest (
     id BINARY(16) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     surname VARCHAR(255) NOT NULL,
@@ -57,13 +59,15 @@ CREATE TABLE Guests (
     FOREIGN KEY (contact_id) REFERENCES Contact(id)
 );
 
-CREATE TABLE Hosts (
+CREATE TABLE Host (
     id BINARY(16) PRIMARY KEY,
     name VARCHAR(35) NOT NULL,
-    surname VARCHAR(65) NOT NULL
+    surname VARCHAR(65) NOT NULL,
+    hotel_id BINARY(16),
+    FOREIGN KEY (hotel_id) REFERENCES Hotel(id)
 );
 
-CREATE TABLE Hotels (
+CREATE TABLE Hotel (
     id BINARY(16) PRIMARY KEY,
     fk_hotel_category_id BINARY(16),
     fk_hotel_address_id BINARY(16),
@@ -73,12 +77,12 @@ CREATE TABLE Hotels (
     created_At DATETIME,
     updated_At DATETIME,
     description TEXT NOT NULL,
-    FOREIGN KEY (fk_hotel_category_id) REFERENCES Categories(id),
-    FOREIGN KEY (fk_hotel_address_id) REFERENCES Addresses(id),
-    FOREIGN KEY (fk_hotel_contact_id) REFERENCES Contacts(id)
+    FOREIGN KEY (fk_hotel_category_id) REFERENCES Category(id),
+    FOREIGN KEY (fk_hotel_address_id) REFERENCES Address(id),
+    FOREIGN KEY (fk_hotel_contact_id) REFERENCES Contact(id)
 );
 
-CREATE TABLE Reservations (
+CREATE TABLE Reservation (
     id BINARY(16) PRIMARY KEY,
     check_in_date DATE,
     check_out_date DATE,
@@ -88,7 +92,7 @@ CREATE TABLE Reservations (
     updated_At DATETIME
 );
 
-CREATE TABLE Rooms (
+CREATE TABLE Room (
     id BINARY(16) PRIMARY KEY,
     hotel_id BINARY(16) NOT NULL,
     description VARCHAR(255) NOT NULL,
@@ -100,12 +104,5 @@ CREATE TABLE Rooms (
     has_microwave BOOLEAN,
     are_pets_allowed BOOLEAN,
     price DECIMAL(10, 2),
-    FOREIGN KEY (hotel_id) REFERENCES Hotels(id)
+    FOREIGN KEY (hotel_id) REFERENCES Hotel(id)
 );
-
-
-
-
-
-
-

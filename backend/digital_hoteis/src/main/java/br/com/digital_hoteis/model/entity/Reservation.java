@@ -33,6 +33,10 @@ public class Reservation {
     @Column(nullable = false)
     private String requests;
 
+    @ManyToOne
+    @JoinColumn(name = "guest_id")
+    private Guest guest;
+
     private boolean is_canceled;
 
     @CreatedDate

@@ -22,6 +22,10 @@ public class Room {
     @JoinColumn(name = "hotel_id", nullable = false, foreignKey = @ForeignKey(name = "fk_room_hotel_id"))
     private Hotel hotel;
 
+    @ManyToOne
+    @JoinColumn(name = "reservation_id", referencedColumnName = "id")
+    private Reservation reservation;
+
     @Column(nullable = false)
     private String description;
 

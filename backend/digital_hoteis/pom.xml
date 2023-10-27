@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>br.com.digitalhouse</groupId>
-    <artifactId>clinicas_checkpointii</artifactId>
+    <artifactId>digital_hoteis</artifactId>
     <version>1</version>
-    <name>clinicas_checkpointii</name>
-    <description>CheckPoint Back End I</description>
+    <name>digital_hoteis</name>
+    <description>Projeto Integrador da Digital House</description>
     <properties>
         <java.version>17</java.version>
     </properties>
