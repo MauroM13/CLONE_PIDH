@@ -8,7 +8,7 @@
         <version>3.1.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>br.com.digitalhouse</groupId>
+    <groupId>br.com.digital_hoteis</groupId>
     <artifactId>digital_hoteis</artifactId>
     <version>1</version>
     <name>digital_hoteis</name>
@@ -84,6 +84,8 @@
             <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
         </dependency>
+
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

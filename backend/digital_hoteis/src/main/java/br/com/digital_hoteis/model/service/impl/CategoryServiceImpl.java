@@ -7,6 +7,7 @@ import br.com.digital_hoteis.model.service.CategoryService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.util.ReflectionUtils;
@@ -21,10 +22,15 @@ import static org.springframework.util.ReflectionUtils.getField;
 
 @Slf4j
 @Service
-@AllArgsConstructor
 public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryRepository categoryRepository;
+
+    @Autowired
+    public CategoryServiceImpl(CategoryRepository categoryRepository, ObjectMapper mapper) {
+        this.categoryRepository = categoryRepository;
+        this.mapper = mapper;
+    }
 
     private final ObjectMapper mapper;
 

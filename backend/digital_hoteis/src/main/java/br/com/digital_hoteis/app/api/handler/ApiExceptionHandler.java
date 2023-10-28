@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ApiExceptionHandler {
 
     @ExceptionHandler(CategoryNotFoundException.class)
-    public ResponseEntity<?> clinicaNotFoundExceptionHandler(CategoryNotFoundException exception) {
+    public ResponseEntity<?> categoryNotFoundExceptionHandler(CategoryNotFoundException exception) {
         return ResponseEntity.badRequest().body(
                 """
                 {

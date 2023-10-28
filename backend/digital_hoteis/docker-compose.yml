@@ -1,27 +1,25 @@
-version: '3.9'
+
+
+version: '3'
 
 services:
   app:
-    build: .
-    container_name: digital_hoteis
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "8088:8080"
-    environment:
-      SPRING_PROFILES_ACTIVE: dev
-      MYSQL_HOST: mysql:3306
-      MYSQL_USERNAME: root
-      MYSQL_PASSWORD: root
+      - "8080:8080"
     depends_on:
-      - mysql
-    volumes:
-      - ./src/main/resources/application.properties:/app/application.properties
-
-  mysql:
-    container_name: mysql
-    image: mysql:latest
+      - db
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: digital_hoteis
-      MYSQL_ROOT_HOST: "%"
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/digital_hoteis?useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+  db:
+    image: mysql:latest
     ports:
-      - "3308:3306"
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: digital_hoteis
+      MYSQL_ROOT_PASSWORD: root

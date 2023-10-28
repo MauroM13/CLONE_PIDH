@@ -70,7 +70,7 @@ public class Address {
         address.setStreet(street);
         address.setDistrict(district);
         address.setCity(city);
-        address.setStreet(state);
+        address.setState(state);
         address.setZipcode(zipcode);
         address.setCountry(country);
         return address;
