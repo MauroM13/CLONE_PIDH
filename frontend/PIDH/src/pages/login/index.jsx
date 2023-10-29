@@ -6,22 +6,27 @@ const Login = () => {
   const [email, setEmail] = useState(""); 
   const [senha, setSenha] = useState("");
   const [error, setError] = useState(""); 
+
+  const submitLogin = async() => {
+    if (senha.length < 6 ){
+      setError("Verifique suas informações novamente"); 
+      return; 
+    }
+  }
   return(
-    <div>
+    <section className="text-red">
      <h1>Iniciar sessão</h1>
      <div>
-      <label htmlFor="text">Email</label>
+      <h5 htmlFor="text">Email</h5>
       <Input type="email" value={email} onChange={(e) => {setEmail(e.target.value), setError("")}} placeholder="Digite seu e-mail" required ></Input>
-
-      <label htmlFor="text">Senha</label>
+      { /*eventos quando escreve, não esquecer*/}
+      <h5 htmlFor="text">Senha</h5>
       <Input type="password" value={senha} onChange={(e) => {setSenha(e.target.value), setError("")}} placeholder="Digite sua senha" required ></Input>
       <label htmlFor="text">{error}</label>
       <Button text="Entrar"></Button>
       <p>Ainda não tem conta <a href="">Registre-se</a></p>
      </div>
-  
-
-    </div>
+    </section>
   )
 }
 
