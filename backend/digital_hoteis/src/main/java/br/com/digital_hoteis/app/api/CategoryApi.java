@@ -47,4 +47,6 @@ public interface CategoryApi {
     @DeleteMapping("{categoryId}")
     @PreAuthorize("hasAuthority('ADMIN')")
     ResponseEntity<Void> deleteCategoryById(@PathVariable UUID categoryId);
+
+
 }

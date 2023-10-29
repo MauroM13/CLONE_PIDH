@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -79,4 +80,6 @@ public class CategoryController implements CategoryApi {
         categoryService.deleteCategoryById(categoryId);
         return ResponseEntity.noContent().build();
     }
+
+
 }
