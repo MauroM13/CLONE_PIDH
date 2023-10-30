@@ -1,13 +1,10 @@
-import './App.css'
-import Login from './pages/login'
-import Header from './components/Header'
+import RoutesApp from "./routes";
 
 function App() {
 
   return (
     <>
-      <Header></Header>
-      <Login></Login>
+      <RoutesApp />
     </>
   )
 }
