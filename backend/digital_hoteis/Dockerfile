@@ -9,12 +9,35 @@
 #
 #CMD ["wait-for-it.sh", "--timeout=120", "mysql:3306", "--", "java", "-jar", "/opt/app/digital_hoteis-1.jar", "-Dspring.profiles.active=dockerembbed,oauth-security"]
 
-FROM eclipse-temurin:17-jre-alpine
+# Build stage
+FROM eclipse-temurin:17-jdk-jammy as build
 
 WORKDIR /app
 
-COPY ./target/digital_hoteis-1.jar .
+# Copy Maven wrapper files
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
 
+# Resolve project dependencies
+RUN ./mvnw dependency:resolve
+
+# Copy the application source code
+COPY src ./src
+
+# Build the application
+RUN ./mvnw package -DskipTests
+
+# Production stage
+FROM eclipse-temurin:17-jre-jammy as production
+
+# Set the working directory
+WORKDIR /app
+
+# Expose port
 EXPOSE 8080
 
-CMD ["java", "-jar", "digital_hoteis-1.jar"]
+# Copy the JAR file from the build stage
+COPY --from=build /app/target/digital_hoteis-*.jar /digital_hoteis-1.jar
+
+# Start the application
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/digital_hoteis-1.jar"]

@@ -15,7 +15,7 @@ public class PageParamsCategoryResponse extends PageParamsResponse<PageParamsCat
         private UUID id;
 
         @Schema(description = "A set of rating values for the category")
-        private Set<RatingEnum> ratings;
+        private RatingEnum ratings;
 
         @Schema(description = "The URL of the category's image", example = "http://unsplash.com/imagemaqui.jpg")
         private String image_url;

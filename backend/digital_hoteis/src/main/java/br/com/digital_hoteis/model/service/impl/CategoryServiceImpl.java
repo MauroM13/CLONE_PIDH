@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.util.ReflectionUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.Field;
 import java.util.Map;
@@ -20,6 +21,8 @@ import java.util.UUID;
 import static org.springframework.util.ReflectionUtils.findField;
 import static org.springframework.util.ReflectionUtils.getField;
 
+
+@Transactional
 @Slf4j
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -31,11 +34,14 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryRepository = categoryRepository;
         this.mapper = mapper;
     }
-
+    @Autowired
     private final ObjectMapper mapper;
 
     @Override
     public Category createCategory(Category category) {
+//        category.setRatings(category.getRatings());
+//        category.setDescription(category.getDescription());
+//        category.setImage_url(category.getImage_url());
         return categoryRepository.save(category);
     }
 
@@ -53,7 +59,7 @@ public class CategoryServiceImpl implements CategoryService {
         fields.forEach((property, value) -> {
             Field field = findField(Category.class, property);
             if (field == null) {
-                log.error("field not found on the payload! '%s', I'll ignore it.".formatted(property));
+                log.error("Field not found on the payload: '{}', ignoring it.", property);
                 return;
             }
             field.setAccessible(true);
@@ -62,6 +68,7 @@ public class CategoryServiceImpl implements CategoryService {
         });
         return categoryRepository.save(category);
     }
+
 
     @Override
     public void deleteCategoryById(UUID id) {
