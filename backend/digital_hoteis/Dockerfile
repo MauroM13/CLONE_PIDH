@@ -39,5 +39,9 @@ EXPOSE 8080
 # Copy the JAR file from the build stage
 COPY --from=build /app/target/digital_hoteis-*.jar /digital_hoteis-1.jar
 
-# Start the application
-CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/digital_hoteis-1.jar"]
+# Add the wait-for.sh script to the container
+ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /usr/local/bin/wait-for-it.sh
+RUN chmod +x /usr/local/bin/wait-for-it.sh
+
+# Start the application with the wait-for.sh script and a 120-second timeout
+CMD ["wait-for-it.sh", "--timeout=400", "mysql:3306", "--", "java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/digital_hoteis-1.jar"]

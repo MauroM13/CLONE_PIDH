@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   digital_hoteis:
+    restart: always
     build:
       context: .
       target: production
@@ -10,25 +11,29 @@ services:
     environment:
       - SERVER_PORT=8080
     depends_on:
-      - mysqlserver
+      - mysql
     networks:
       - mynetwork
+    volumes:
+      - ./backend/digital_hoteis/create.sql:/app/create.sql
 
-  mysqlserver:
-    image: mysql:8.0
+  mysql:
+    image: mysql:8.1
+    restart: always
     ports:
       - "3307:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
-      - MYSQL_USER=digital_hoteis
-      - MYSQL_PASSWORD=digital_hoteis
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
       - MYSQL_DATABASE=digital_hoteis
     volumes:
       - mysql_data:/var/lib/mysql
       - mysql_config:/etc/mysql/conf.d
     networks:
       - mynetwork
+
 
 volumes:
   mysql_data:
