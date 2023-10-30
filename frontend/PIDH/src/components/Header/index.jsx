@@ -2,7 +2,7 @@ import Logo from "./Logo"
 
 function Header() {
   return (
-    <header>
+    <header className="w-screen h-20">
       <Logo />
     </header>
   )
