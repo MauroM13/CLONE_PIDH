@@ -23,17 +23,17 @@ const Login = () => {
     }
   }
   return(
-    <section className="text-blue">
-     <h1>Iniciar sessão</h1>
-     <div>
-      <label htmlFor="email">Email</label>
-      <Input type="email" id="email" value={email} onChange={(e) => {setEmail(e.target.value), setError("")}} placeholder="Digite seu e-mail" required></Input>
-
+    <section className="w-screen h-full flex flex-col items-center justify-center px-6 py-8 text-start">
+     <h1 className="text-4x1 font-bold ">Iniciar sessão</h1>
+     <div className=" flex flex-col p-6 space-y-4">
+      <label htmlFor="email">E-mail</label>
+      <Input type="email" id="email" value={email} onChange={(e) => {setEmail(e.target.value), setError("")}} placeholder="name@gmail.com" required></Input>
+        
       <label htmlFor="senha">Senha</label>
-      <Input type="password" id="senha" value={senha} onChange={(e) => {setSenha(e.target.value), setError("")}} placeholder="Digite sua senha" required ></Input>
+      <Input type="password" id="senha" value={senha} onChange={(e) => {setSenha(e.target.value), setError("")}} placeholder="••••••••" required ></Input>
       <p>{error}</p>
-      <Button text="Entrar" onClick={submitLogin}></Button>
-      <p>Ainda não tem conta <a href="">Registre-se</a></p>
+      <Button text="Entrar" onClick={submitLogin} ></Button>
+      <p className="text-sm font-light text-gray-500">Ainda não tem conta <a href="" className="font-medium text-principal hover:underline">Registre-se</a></p>
      </div>
     </section>
   )
