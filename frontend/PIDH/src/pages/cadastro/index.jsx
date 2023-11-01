@@ -23,8 +23,8 @@ const Cadastro = () => {
 
    return(
       <section className="w-screen h-full flex flex-col items-center 
-      justify-center px-6 py-8 text-start md:w-full md:py-4 lg:mt-4 ">
-       <h1>Criar sua conta</h1>
+      justify-center px-6 py-8 text-start font-Noto md:w-full md:py-4 lg:mt-4 ">
+       <h1 className="text-xl font-semibold leading-tight tracking-tight text-gray-900 md:text-2xl">Criar sua conta</h1>
        <form className="w-full flex flex-col p-6 space-y-4 md:mt-0 md:space-y-2 md:w-auto">
          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-evenly lg:w-100 lg:h-30 md:gap-2">
          <label htmlFor="nome">Nome</label>
