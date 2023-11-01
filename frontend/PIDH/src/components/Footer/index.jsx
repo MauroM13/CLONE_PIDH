@@ -2,11 +2,11 @@ import { BsInstagram, BsFacebook, BsLinkedin, BsTwitter } from "react-icons/bs";
 
 function Footer() {
   return (
-    <footer className="w-screen h-14 flex justify-around bg-green-400 items-center">
-      <p className="text-center text-gray-800">
+    <footer className="w-screen h-14 flex justify-around bg-principal items-center">
+      <p className="text-center text-gray-200">
         &copy; 2021 Five Hotels. All rights reserved.
       </p>
-      <div className="flex gap-8 text-gray-800">
+      <div className="flex gap-8 text-gray-200">
         <a
           href="https://www.instagram.com/"
           target="_blank"
