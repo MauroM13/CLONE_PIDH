@@ -1,0 +1,29 @@
+{
+  "categories": 
+  [
+    {
+      "id": 1,
+      "description": "Hotéis",
+      "image": "https://www.hoteliernews.com.br/wp-content/uploads/2022/01/MME-Hoteis-projeto-de-expansao.jpg",
+      "qualification": 350
+    },
+    {
+      "id": 2,
+      "description": "Pousadas",
+      "image": "https://www.viajali.com.br/wp-content/uploads/2022/08/pousadas-em-penedo-100.png",
+      "qualification": 259
+    },
+    {
+      "id": 3,
+      "description": "Hostels",
+      "image": "https://b.otcdn.com/imglib/hotelfotos/8/362/flor-de-gaudi-park-guell-hostel-barcelona-027.jpg",
+      "qualification": 160
+    },
+    {
+      "id": 4,
+      "description": "Apartamentos",
+      "image": "https://images.jota.info/wp-content/uploads/2022/06/apartamento-airbnb-1024x683.jpg",
+      "qualification": 235
+    }
+  ]
+}
