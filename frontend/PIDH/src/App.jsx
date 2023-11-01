@@ -1,14 +1,13 @@
-import { useState } from 'react'
-import './App.css'
-import Login from './pages/login'
+import Footer from "./components/Footer";
+import RoutesApp from "./routes";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <Login></Login>
-    </>
+    <main className="overflow-x-hidden bg-gray-50 dark:bg-zinc-800 dark:text-zinc-50">
+      <RoutesApp />
+      <Footer />
+    </main>
   )
 }
 
