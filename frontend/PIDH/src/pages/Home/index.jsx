@@ -1,7 +1,11 @@
+import Categories from "../../components/Categories";
+import Cards from "../../components/Cards";
+
 function Home() {
   return (
     <div className="min-h-screen">
-      <h1>Home</h1>
+      <Categories />
+      <Cards />
     </div>
   );
 }
