@@ -12,9 +12,9 @@ const [cards, setCards] = useState([])
   }, [])
 
   return (
-    <div>
+    <div className="my-10">
       <h2>Recomendações</h2>
-      <div className="flex w-full gap-4 flex-wrap">
+      <div className="flex w-full gap-8 flex-wrap justify-around">
     {
       cards.map( ({img, category, title, location, description}, index) => {
         return (
