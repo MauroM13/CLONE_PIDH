@@ -23,7 +23,7 @@ const Cadastro = () => {
     }
 
    return(
-      <section className="w-screen min-h-screen flex flex-col items-center 
+      <section className="flex min-h-full flex-col items-center 
       justify-center px-6 py-8 text-start font-Noto md:w-full md:py-4 lg:mt-4 ">
        <h1 className="text-xl font-semibold leading-tight tracking-tight text-gray-900 md:text-2xl">Criar sua conta</h1>
        <form className="w-full flex flex-col p-6 space-y-4 md:mt-0 md:space-y-2 md:w-auto">
@@ -43,7 +43,7 @@ const Cadastro = () => {
        <Input type="password" id="senha" value={senha} onChange={(e) => {setSenha(e.target.value), setError("")}} placeholder="••••••••" required ></Input>
        <p>{error}</p>
        <Button text="Registre-se" onClick={submitCadastro}></Button>
-       <p className="text-sm font-light text-gray-600 text-center">Já tem conta? <Link to="/login" className="font-medium text-principal hover:underline">Faça login</Link></p>
+       <p className="text-sm font-light text-gray-600 text-center">Já tem conta? <Link to="/login" className="font-medium text-green-600 hover:underline">Faça login</Link></p>
        </form>
       </section>
    )

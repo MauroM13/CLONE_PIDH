@@ -3,7 +3,7 @@ import Cards from "../../components/Cards";
 
 function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-full">
       <Categories />
       <Cards />
     </div>
