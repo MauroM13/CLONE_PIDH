@@ -1,0 +1,61 @@
+{
+  "result": 
+  [
+    {
+      "img": "https://i.t4w.mobi/h/BR/1010422/160459/160459_28250_73_z.jpg",
+      "category": "Hotéis",
+      "title": "Hotel 1",
+      "location": "Rio de janeiro",
+      "description": "Puma egyptian mau, so devonshire rex maine coon persian. Cougar american shorthair maine coon yet american bobtail cornish rex siberian."
+    },
+    {
+      "img": "https://www.carpemundi.com.br/wp-content/uploads/2021/05/quintadobucanero.jpg",
+      "category": "Pousadas",
+      "title": "Pousada 1",
+      "location": "Santa Catarina",
+      "description": "Puma egyptian mau, so devonshire rex maine coon persian. Cougar american shorthair maine coon yet american bobtail cornish rex siberian."
+    },
+    {
+      "img": "https://www.carpemundi.com.br/wp-content/uploads/2017/06/primeiraviagemhostel.jpg",
+      "category": "Hostels",
+      "title": "Hostel 1",
+      "location": "Rio Grande do Sul",
+      "description": "Puma egyptian mau, so devonshire rex maine coon persian. Cougar american shorthair maine coon yet american bobtail cornish rex siberian."
+    },
+    {
+      "img": "https://cdn.temporadalivre.com/uploads/picture/mv_files/image/000/003/314/572/3314572/thumb_charmoso-2-quartos-piscina-aluguel-temporada-sao-paulo-vila-mariana.jpg",
+      "category": "Apartamentos",
+      "title": "Apartamento 1",
+      "location": "São Paulo",
+      "description": "Puma egyptian mau, so devonshire rex maine coon persian. Cougar american shorthair maine coon yet american bobtail cornish rex siberian."
+    },
+    {
+      "img": "https://www.queroviajarmais.com/wp-content/uploads/2021/06/melhores-pousadas-joao-pessoa-pb-870x653.jpg",
+      "category": "Pousadas",
+      "title": "Pousada 2",
+      "location": "João Pessoa",
+      "description": "Puma egyptian mau, so devonshire rex maine coon persian. Cougar american shorthair maine coon yet american bobtail cornish rex siberian."
+    },
+    {
+      "img": "https://www.joaoalberto.com/wp-content/uploads/2017/05/12/0-1.jpg",
+      "category": "Hostels",
+      "title": "Hostel 2",
+      "location": "Recife",
+      "description": "Puma egyptian mau, so devonshire rex maine coon persian. Cougar american shorthair maine coon yet american bobtail cornish rex siberian."
+    },
+    {
+      "img": "https://www.melhoresdestinos.com.br/wp-content/uploads/2022/08/hoteis-brasilia-royal-tulip-5.jpeg",
+      "category": "Hotéis",
+      "title": "Hotel 2",
+      "location": "Brasilia",
+      "description": "Puma egyptian mau, so devonshire rex maine coon persian. Cougar american shorthair maine coon yet american bobtail cornish rex siberian."
+    },
+    {
+      "img": "https://media-cdn.tripadvisor.com/media/vr-splice-j/0a/e7/0b/05.jpg",
+      "category": "Apartamentos",
+      "title": "Apartamento 2",
+      "location": "Curitiba",
+      "description": "Puma egyptian mau, so devonshire rex maine coon persian. Cougar american shorthair maine coon yet american bobtail cornish rex siberian."
+    }
+  ]
+}

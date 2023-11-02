@@ -1,23 +1,21 @@
--- Drop tables if they exist
-DROP TABLE IF EXISTS Reservation;
-DROP TABLE IF EXISTS Room;
-DROP TABLE IF EXISTS Guest;
-DROP TABLE IF EXISTS Contact;
-DROP TABLE IF EXISTS Address;
-DROP TABLE IF EXISTS Attraction;
-DROP TABLE IF EXISTS Hotel;
-DROP TABLE IF EXISTS Host;
-DROP TABLE IF EXISTS Category;
+DROP TABLE IF EXISTS category;
+DROP TABLE IF EXISTS address;
+DROP TABLE IF EXISTS contact;
+DROP TABLE IF EXISTS attraction;
+DROP TABLE IF EXISTS guest;
+DROP TABLE IF EXISTS host;
+DROP TABLE IF EXISTS hotel;
+DROP TABLE IF EXISTS reservation;
+DROP TABLE IF EXISTS room;
 
--- Create tables
-CREATE TABLE Category (
+CREATE TABLE category (
     id BINARY(16) PRIMARY KEY,
     description VARCHAR(255) NOT NULL,
     image_url VARCHAR(255),
     ratings ENUM('ONE_STAR', 'TWO_STARS', 'THREE_STARS', 'FOUR_STARS', 'FIVE_STARS')
 );
 
-CREATE TABLE Address (
+CREATE TABLE address (
     id BINARY(16) PRIMARY KEY,
     street VARCHAR(100),
     district VARCHAR(100),
@@ -29,15 +27,7 @@ CREATE TABLE Address (
     updated_At DATETIME
 );
 
-CREATE TABLE Attraction (
-    id BINARY(16) PRIMARY KEY,
-    address_id BINARY(16),
-    name VARCHAR(255) NOT NULL,
-    description TEXT NOT NULL,
-    FOREIGN KEY (address_id) REFERENCES Address(id)
-);
-
-CREATE TABLE Contact (
+CREATE TABLE contact (
     id BINARY(16) PRIMARY KEY,
     email VARCHAR(100) NOT NULL,
     phone_number VARCHAR(20),
@@ -45,7 +35,17 @@ CREATE TABLE Contact (
     updated_At DATETIME
 );
 
-CREATE TABLE Guest (
+CREATE TABLE attraction (
+    id BINARY(16) PRIMARY KEY,
+    address_id BINARY(16),
+    name VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    FOREIGN KEY (address_id) REFERENCES address(id)
+);
+
+
+
+CREATE TABLE guest (
     id BINARY(16) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     surname VARCHAR(255) NOT NULL,
@@ -55,19 +55,19 @@ CREATE TABLE Guest (
     updated_At DATETIME,
     address_id BINARY(16),
     contact_id BINARY(16),
-    FOREIGN KEY (address_id) REFERENCES Address(id),
-    FOREIGN KEY (contact_id) REFERENCES Contact(id)
+    FOREIGN KEY (address_id) REFERENCES address(id),
+    FOREIGN KEY (contact_id) REFERENCES contact(id)
+--    CONSTRAINT fk_guest_contact_id FOREIGN KEY (id) REFERENCES guest(id)
+--    CONSTRAINT fk_guest_address_id FOREIGN KEY (id) REFERENCES address(id)
 );
 
-CREATE TABLE Host (
+CREATE TABLE host (
     id BINARY(16) PRIMARY KEY,
     name VARCHAR(35) NOT NULL,
-    surname VARCHAR(65) NOT NULL,
-    hotel_id BINARY(16),
-    FOREIGN KEY (hotel_id) REFERENCES Hotel(id)
+    surname VARCHAR(65) NOT NULL
 );
 
-CREATE TABLE Hotel (
+CREATE TABLE hotel (
     id BINARY(16) PRIMARY KEY,
     fk_hotel_category_id BINARY(16),
     fk_hotel_address_id BINARY(16),
@@ -77,22 +77,24 @@ CREATE TABLE Hotel (
     created_At DATETIME,
     updated_At DATETIME,
     description TEXT NOT NULL,
-    FOREIGN KEY (fk_hotel_category_id) REFERENCES Category(id),
-    FOREIGN KEY (fk_hotel_address_id) REFERENCES Address(id),
-    FOREIGN KEY (fk_hotel_contact_id) REFERENCES Contact(id)
+    FOREIGN KEY (fk_hotel_category_id) REFERENCES category(id),
+    FOREIGN KEY (fk_hotel_address_id) REFERENCES address(id),
+    FOREIGN KEY (fk_hotel_contact_id) REFERENCES contact(id)
 );
 
-CREATE TABLE Reservation (
+CREATE TABLE reservation (
     id BINARY(16) PRIMARY KEY,
     check_in_date DATE,
     check_out_date DATE,
     requests TEXT NOT NULL,
     is_canceled BOOLEAN,
     created_At DATETIME,
-    updated_At DATETIME
+    updated_At DATETIME,
+    guest_id BINARY(16),
+    FOREIGN KEY (guest_id) REFERENCES guest(id)
 );
 
-CREATE TABLE Room (
+CREATE TABLE room (
     id BINARY(16) PRIMARY KEY,
     hotel_id BINARY(16) NOT NULL,
     description VARCHAR(255) NOT NULL,
@@ -104,5 +106,5 @@ CREATE TABLE Room (
     has_microwave BOOLEAN,
     are_pets_allowed BOOLEAN,
     price DECIMAL(10, 2),
-    FOREIGN KEY (hotel_id) REFERENCES Hotel(id)
+    FOREIGN KEY (hotel_id) REFERENCES hotel(id)
 );

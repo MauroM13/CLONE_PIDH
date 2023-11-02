@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.UUID;
 
 public record CategoryDetailedResponse(    UUID id,
-                                           Set<RatingEnum> ratings,
+                                           RatingEnum ratings,
                                            String description,
                                            String image_url) {
 }

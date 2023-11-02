@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: br.com.digital_hoteis.DigitalHoteisApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 50.983 s - in br.com.digital_hoteis.DigitalHoteisApplicationTests

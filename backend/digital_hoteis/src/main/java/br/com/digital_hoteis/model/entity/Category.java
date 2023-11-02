@@ -3,6 +3,7 @@ package br.com.digital_hoteis.model.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Set;
 import java.util.UUID;
@@ -10,20 +11,16 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "categories")
+@Table(name = "category")
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-//    private RatingEnum rating;
-
     @Enumerated(EnumType.STRING)
-    @ElementCollection
-    @CollectionTable(name = "ratings", joinColumns = @JoinColumn(name = "category_id"))
-    @Column(name = "ratings", columnDefinition = "VARCHAR(50)")
-    private Set<RatingEnum> ratings;
+    @Column(name = "ratings")
+    private RatingEnum ratings;
 
     @Column(nullable = false)
     private String description;
@@ -41,7 +38,7 @@ public class Category {
     }
 
     public static Category newCategory(
-            Set<RatingEnum> ratings,
+            RatingEnum ratings,
             String description,
             String image_url) {
         Category category = new Category();

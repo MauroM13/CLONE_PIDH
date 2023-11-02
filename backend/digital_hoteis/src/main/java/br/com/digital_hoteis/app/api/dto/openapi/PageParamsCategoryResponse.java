@@ -7,17 +7,17 @@ import lombok.Getter;
 import java.util.Set;
 import java.util.UUID;
 
-public class PageParamsCategoryResponse extends PageParamsResponse<PageParamsCategoryResponse.Category>{
+public class PageParamsCategoryResponse extends PageParamsResponse<PageParamsCategoryResponse.Category> {
 
     @Getter
     public static class Category {
+        @Schema(description = "The unique identifier for the category")
         private UUID id;
 
-        @Schema(example = "Hostels")
-        Set<RatingEnum> ratings;
+        @Schema(description = "A set of rating values for the category")
+        private RatingEnum ratings;
 
-        @Schema(example = "http://unsplash.com/imagemaqui.jpg")
+        @Schema(description = "The URL of the category's image", example = "http://unsplash.com/imagemaqui.jpg")
         private String image_url;
-
     }
 }

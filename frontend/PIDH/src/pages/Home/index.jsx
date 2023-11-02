@@ -1,10 +1,13 @@
+import Categories from "../../components/Categories";
+import Cards from "../../components/Cards";
+
 function Home() {
-    return (
-      <div className="min-h-screen">
-        <h1>Home</h1>
-      </div>
-    );
-  }
-  
-  export default Home;
-  
+  return (
+    <div className="min-h-screen">
+      <Categories />
+      <Cards />
+    </div>
+  );
+}
+
+export default Home;
